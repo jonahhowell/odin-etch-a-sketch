@@ -10,8 +10,8 @@ body {
 }
 
 #maincontainer {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     border: 1px solid red;
     display: flex;
     flex-direction: column;

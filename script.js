@@ -1,10 +1,10 @@
 const ROWDIVSTYLE = 'display: flex; flex: 1; justify-content: space-between;';
 const COLDIVSTYLE = 'flex: 1;'
 const COLDIVHOVEREDSTYLE = 'flex: 1; background-color: black;'
+const CONTAINER = document.getElementById('maincontainer');
 
 
 function createGrid(length) {
-    const container = document.getElementById('maincontainer');
     for (let i = 0; i < length; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.style.cssText = ROWDIVSTYLE;
@@ -14,7 +14,7 @@ function createGrid(length) {
             setToBlackOnHover(colDiv);
             rowDiv.appendChild(colDiv);
         }
-        container.appendChild(rowDiv);
+        CONTAINER.appendChild(rowDiv);
     }
 }
 
@@ -24,4 +24,12 @@ function setToBlackOnHover(colDiv) {
     })
 }
 
-createGrid(9);
+createGrid(16);
+let input = prompt('Enter length of etch a sketch');
+if (input <= 0) input = 1;
+if (input > 100) input = 100;
+while (CONTAINER.firstChild) {
+    CONTAINER.removeChild(CONTAINER.firstChild);
+}
+
+createGrid(input);
